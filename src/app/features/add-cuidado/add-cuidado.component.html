@@ -1,0 +1,62 @@
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="saveDetails(form)">
+      <div class="row">
+        <mat-form-field appearance="standard">
+          <mat-label>Madre o Padre</mat-label>
+          <input matInput maxlength="50" placeholder="Ana" formControlName="parent" #nameInput>
+          <mat-hint>Mínimo 2 caracteres: {{ nameInput.value.length }}/2</mat-hint>
+          <mat-error>Campo obligatorio</mat-error>
+          <mat-error *ngIf="form.controls['parent'].errors?.['minlength']">
+              Por favor introduzca al menos 2 caracteres
+          </mat-error>
+      </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="standard" class="row">
+            <mat-label>Cuidador/a</mat-label>
+            <input matInput maxlength="50" formControlName="caretaker" placeholder="María">
+            <mat-hint>Mínimo 2 caracteres: {{ nameInput.value.length }}/2</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+            <mat-error *ngIf="form.controls['parent'].errors?.['minlength']">
+                Por favor introduzca al menos 2 caracteres
+            </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="standard">
+          <mat-label>Inicio</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="beginning">
+          <mat-datepicker-toggle matSuffix [for]="picker">
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>Campo obligatorio</mat-error>
+      </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="standard">
+            <mat-label>Duración</mat-label>
+            <input matInput formControlName="duration" placeholder="1h 30m">
+        </mat-form-field>
+      </div>
+
+
+      <div class="row">
+        <mat-form-field appearance="standard">
+            <mat-label>Observaciones</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-4 text-center">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Enviar</button>
+        </div>
+        <div class="col-4 text-center">
+          <button mat-raised-button color="secondary" type="button" (click)="goBack()">Volver</button>
+        </div>
+      </div>
+    </form>
+</div>

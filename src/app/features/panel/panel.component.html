@@ -1,0 +1,46 @@
+<div class="container">
+  <mat-table [dataSource]="dataSource">
+    <!-- Persona que dejó -->
+    <ng-container matColumnDef="parent">
+      <mat-header-cell *matHeaderCellDef> Madre o Padre </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.parent}} </mat-cell>
+    </ng-container>
+
+    <!-- Persona que cuidó -->
+    <ng-container matColumnDef="caretaker">
+      <mat-header-cell *matHeaderCellDef> Cuidador/a </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.caretaker}} </mat-cell>
+    </ng-container>
+
+    <!-- Fecha y hora de inicio -->
+    <ng-container matColumnDef="beginning">
+      <mat-header-cell *matHeaderCellDef> Inicio </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.beginning}} </mat-cell>
+    </ng-container>
+
+    <!-- Duración -->
+    <ng-container matColumnDef="duration">
+      <mat-header-cell *matHeaderCellDef> Duración </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.duration}} </mat-cell>
+    </ng-container>
+
+    <!-- Observaciones -->
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef> Observaciones </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="['parent', 'caretaker', 'beginning', 'duration', 'description']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['parent', 'caretaker', 'beginning', 'duration', 'description']"></mat-row>
+  </mat-table>
+  <br/>
+  <div class="row justify-content-center">
+    <div class="col-4 text-center">
+      <button mat-raised-button color="primary" type="button" (click)="goToAddCuidado()">Añadir Cuidado</button>
+    </div>
+    <div class="col-4 text-center">
+      <button mat-raised-button color="secondary" type="button" (click)="goToAddPersona()">Añadir Persona</button>
+    </div>
+  </div>
+</div>

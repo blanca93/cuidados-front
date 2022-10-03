@@ -1,0 +1,23 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="saveDetails(form)">
+    <div class="row">
+      <mat-form-field appearance="standard">
+        <mat-label>Madre o Padre</mat-label>
+        <input matInput maxlength="50" placeholder="Ana" formControlName="parent" #nameInput>
+        <mat-hint>Mínimo 2 caracteres: {{ nameInput.value.length }}/2</mat-hint>
+        <mat-error>Campo obligatorio</mat-error>
+        <mat-error *ngIf="form.controls['parent'].errors?.['minlength']">
+            Por favor introduzca al menos 2 caracteres
+        </mat-error>
+    </mat-form-field>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4 text-center">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Enviar</button>
+      </div>
+      <div class="col-4 text-center">
+        <button mat-raised-button color="secondary" type="button" (click)="goBack()">Volver</button>
+      </div>
+    </div>
+</form>
+</div>
