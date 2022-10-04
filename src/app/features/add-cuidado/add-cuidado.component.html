@@ -3,42 +3,38 @@
       <div class="row">
         <mat-form-field appearance="standard">
           <mat-label>Madre o Padre</mat-label>
-          <input matInput maxlength="50" placeholder="Ana" formControlName="parent" #nameInput>
-          <mat-hint>Mínimo 2 caracteres: {{ nameInput.value.length }}/2</mat-hint>
-          <mat-error>Campo obligatorio</mat-error>
-          <mat-error *ngIf="form.controls['parent'].errors?.['minlength']">
-              Por favor introduzca al menos 2 caracteres
-          </mat-error>
-      </mat-form-field>
+          <mat-select [(ngModel)]="parentSelected" formControlName="parent" name="parent">
+            <mat-option *ngFor="let parent of personas" [value]="parent.code">
+              {{parent.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
 
       <div class="row">
-        <mat-form-field appearance="standard" class="row">
-            <mat-label>Cuidador/a</mat-label>
-            <input matInput maxlength="50" formControlName="caretaker" placeholder="María">
-            <mat-hint>Mínimo 2 caracteres: {{ nameInput.value.length }}/2</mat-hint>
-            <mat-error>Campo obligatorio</mat-error>
-            <mat-error *ngIf="form.controls['parent'].errors?.['minlength']">
-                Por favor introduzca al menos 2 caracteres
-            </mat-error>
+        <mat-form-field appearance="standard">
+          <mat-label>Cuidador/a</mat-label>
+          <mat-select [(ngModel)]="caretakerSelected" formControlName="caretaker" name="caretaker">
+            <mat-option *ngFor="let caretaker of personas" [value]="caretaker.code">
+              {{caretaker.name}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
 
       <div class="row">
         <mat-form-field appearance="standard">
           <mat-label>Inicio</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="beginning">
-          <mat-datepicker-toggle matSuffix [for]="picker">
-          </mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <input matInput type="datetime-local" formControlName="beginning">
           <mat-error>Campo obligatorio</mat-error>
       </mat-form-field>
       </div>
 
       <div class="row">
         <mat-form-field appearance="standard">
-            <mat-label>Duración</mat-label>
-            <input matInput formControlName="duration" placeholder="1h 30m">
+            <mat-label>Duración en minutos</mat-label>
+            <input matInput formControlName="duration" placeholder="90">
+            <mat-error>Campo obligatorio</mat-error>
         </mat-form-field>
       </div>
 
@@ -47,6 +43,7 @@
         <mat-form-field appearance="standard">
             <mat-label>Observaciones</mat-label>
             <textarea matInput formControlName="description"></textarea>
+            <mat-error>Longitud máxima: 150 caracteres</mat-error>
         </mat-form-field>
       </div>
 

@@ -19,7 +19,7 @@ export class PanelComponent implements OnInit {
   }
 
   getData() {
-    this.apiService.getData().subscribe(
+    this.apiService.getCuidados().subscribe(
       (resp: Cuidado[]) => { this.dataSource = resp; }
     );
   }
