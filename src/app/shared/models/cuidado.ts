@@ -1,20 +1,20 @@
 export class Cuidado {
-  parent: string;
-  caretaker: string;
+  parentCode: number;
+  caretakerCode: number;
   beginning: Date;
-  duration: string;
+  duration: number;
   description: string;
 
-  constructor(parent: string,
-    caretaker: string,
+  constructor(parentCode: number,
+    caretakerCode: number,
     beginning: Date,
-    duration: string,
+    duration: number,
     description: string) {
       this.beginning = beginning;
-      this.caretaker = caretaker;
+      this.caretakerCode = caretakerCode;
       this.description = description;
       this.duration = duration;
-      this.parent = parent;
+      this.parentCode = parentCode;
 
     }
 }

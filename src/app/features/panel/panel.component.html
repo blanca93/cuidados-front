@@ -35,6 +35,24 @@
     <mat-row *matRowDef="let row; columns: ['parent', 'caretaker', 'beginning', 'duration', 'description']"></mat-row>
   </mat-table>
   <br/>
+  <mat-table [dataSource]="balances">
+    <!-- Persona -->
+    <ng-container matColumnDef="person">
+      <mat-header-cell *matHeaderCellDef> Persona </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.person}} </mat-cell>
+    </ng-container>
+
+    <!-- Duración -->
+    <ng-container matColumnDef="time">
+      <mat-header-cell *matHeaderCellDef> Tiempo que debe o le deben </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.time | m2h}} </mat-cell>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="['person', 'time']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['person', 'time']"></mat-row>
+  </mat-table>
+  <br/>
   <div class="row justify-content-center">
     <div class="col-4 text-center">
       <button mat-raised-button color="primary" type="button" (click)="goToAddCuidado()">Añadir Cuidado</button>

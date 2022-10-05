@@ -3,7 +3,7 @@
       <div class="row">
         <mat-form-field appearance="standard">
           <mat-label>Madre o Padre</mat-label>
-          <mat-select [(ngModel)]="parentSelected" formControlName="parent" name="parent">
+          <mat-select [(ngModel)]="parentSelected" formControlName="parentCode" name="parentCode">
             <mat-option *ngFor="let parent of personas" [value]="parent.code">
               {{parent.name}}
             </mat-option>
@@ -14,7 +14,7 @@
       <div class="row">
         <mat-form-field appearance="standard">
           <mat-label>Cuidador/a</mat-label>
-          <mat-select [(ngModel)]="caretakerSelected" formControlName="caretaker" name="caretaker">
+          <mat-select [(ngModel)]="caretakerSelected" formControlName="caretakerCode" name="caretakerCode">
             <mat-option *ngFor="let caretaker of personas" [value]="caretaker.code">
               {{caretaker.name}}
             </mat-option>
@@ -34,7 +34,7 @@
         <mat-form-field appearance="standard">
             <mat-label>Duración en minutos</mat-label>
             <input matInput formControlName="duration" placeholder="90">
-            <mat-error>Campo obligatorio</mat-error>
+            <mat-error>Campo numérico obligatorio</mat-error>
         </mat-form-field>
       </div>
 

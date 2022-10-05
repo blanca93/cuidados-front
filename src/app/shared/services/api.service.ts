@@ -4,6 +4,7 @@ import { Cuidado } from '../models/cuidado';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Persona } from '../models/persona';
+import { Balance } from '../models/balance';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class ApiService {
 
   getPersonas(): Observable<Persona[]> {
     return this.http.get<Persona[]>(`${environment.apiUrl}/personas`);
+  }
+
+  getBalance(): Observable<Balance[]> {
+    return this.http.get<Balance[]>(`${environment.apiUrl}/balance`);
   }
 
   savePersona(persona: string): Observable<void> {

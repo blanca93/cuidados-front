@@ -21,8 +21,8 @@ export class AddCuidadoComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      parent: [null, [Validators.required]],
-      caretaker: [null, [Validators.required]],
+      parentCode: [null, [Validators.required]],
+      caretakerCode: [null, [Validators.required]],
       beginning: [null, [Validators.required]],
       duration: [null, [Validators.required, Validators.pattern("^[0-9]*$")]],
       description: [null, [Validators.maxLength(150)]]

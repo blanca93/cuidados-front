@@ -21,7 +21,7 @@ export class AddPersonaComponent implements OnInit {
   }
 
   saveDetails(form: any) {
-    this.apiService.savePersona(this.form.parent?.value).subscribe(
+    this.apiService.savePersona(this.form.controls?.['parent']?.value).subscribe(
       () => {
           alert('Los datos se han enviado correctamente');
           this.router.navigate(['panel']);

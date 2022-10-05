@@ -17,6 +17,7 @@ import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MinutesToHoursPipe } from './shared/pipes/minutes-to-hours.pipe';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MatSelectModule } from '@angular/material/select';
     AppComponent,
     PanelComponent,
     AddCuidadoComponent,
-    AddPersonaComponent
+    AddPersonaComponent,
+    MinutesToHoursPipe
   ],
   imports: [
     BrowserModule,
